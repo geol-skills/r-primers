@@ -26,8 +26,8 @@ webr:
 {{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ```{r include=FALSE}
-library(tidyverse)
-library(checkdown)
+library("tidyverse")
+library("checkdown")
 
 source(here::here("R", "helpers.R"))
 ```
@@ -41,7 +41,7 @@ R comes with many functions built in; together these are called "base R". **Pack
 Using a package takes two steps, which match Python's `pip install` and `import`:
 
 1. **Install** it, once per computer: `install.packages("ggplot2")`.
-2. **Load** it, once per R session: `library(ggplot2)`.
+2. **Load** it, once per R session: `library("ggplot2")`.
 
 If you call a function from a package you have not loaded, R stops with an error like `could not find function "ggplot"`. The same error appears if you mistype a function's name, so check both.
 
@@ -87,7 +87,7 @@ In the code chunk below, load the {tidyverse} package. Whenever you load a packa
 ## {{< fa circle-check >}}&ensp;Solution
 
 ```r
-library(tidyverse)
+library("tidyverse")
 ```
 
 :::
@@ -99,7 +99,7 @@ Good job! R will keep the packages loaded until you close your R session. When y
 
 ### Quotes
 
-Did you know `library()` is a special function in R? You can pass `library()` a package name in quotes, like `library("tidyverse")`, or not in quotes, like `library(tidyverse)`---both will work! That's often not the case with R functions.
+Did you know `library()` is a special function in R? You can pass `library()` a package name in quotes, like `library("tidyverse")`, or not in quotes, like `library("tidyverse")`---both will work! That's often not the case with R functions.
 
 In general, you should always use quotes unless you are writing the _name_ of something that is already loaded into R's memory, like a function, vector, or data frame.
 

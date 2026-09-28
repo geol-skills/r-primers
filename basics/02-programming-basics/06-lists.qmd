@@ -22,8 +22,8 @@ engine: knitr
 {{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ```{r include=FALSE}
-library(tidyverse)
-library(checkdown)
+library("tidyverse")
+library("checkdown")
 
 source(here::here("R", "helpers.R"))
 ```

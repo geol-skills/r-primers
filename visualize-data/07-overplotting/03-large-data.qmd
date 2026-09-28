@@ -35,7 +35,7 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
+library("tidyverse")
 
 source(here::here("R", "helpers.R"))
 ```

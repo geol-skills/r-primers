@@ -35,8 +35,8 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
-library(checkdown)
+library("tidyverse")
+library("checkdown")
 
 source(here::here("R", "helpers.R"))
 ```
@@ -52,7 +52,7 @@ When you use tidyverse packages, you can make your life easier by using the {tid
 
 ```{r eval = FALSE}
 install.packages("tidyverse")
-library(tidyverse)
+library("tidyverse")
 ```
 
 ### Installing the tidyverse
@@ -108,7 +108,7 @@ Let's give this a try. We will use the ggplot2 and dplyr packages later in this 
 ## {{< fa circle-check >}}&ensp;Solution
 
 ```r
-library(tidyverse)
+library("tidyverse")
 ```
 
 :::

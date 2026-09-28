@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
+library("tidyverse")
 
 p <- ggplot(diamonds) +
   geom_boxplot(mapping = aes(x = cut, y = price)) + 

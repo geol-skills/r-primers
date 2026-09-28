@@ -36,8 +36,8 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
-library(checkdown)
+library("tidyverse")
+library("checkdown")
 set.seed(1234)
 
 cases <- tribble(

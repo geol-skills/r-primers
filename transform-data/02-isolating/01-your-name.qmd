@@ -19,8 +19,8 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
-library(babynames)
+library("tidyverse")
+library("babynames")
 
 source(here::here("R", "helpers.R"))
 ```

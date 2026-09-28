@@ -39,8 +39,8 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
-library(sf)
+library("tidyverse")
+library("sf")
 
 tx <- map_data("state", region = "texas")
 us <- map_data("state")
@@ -200,7 +200,7 @@ Let's see how this works.
 The `us` data we created with `map_data()` won't work with {sf}, since it's just a bunch of x/y coordinates. But we can load the `us_states` dataset from [the {spData} package](https://jakubnowosad.com/spData/):
 
 ```{r message=FALSE}
-library(spData)
+library("spData")
 us_states
 ```
 

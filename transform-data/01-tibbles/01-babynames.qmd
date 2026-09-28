@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
+library("tidyverse")
 
 source(here::here("R", "helpers.R"))
 ```
@@ -49,7 +49,7 @@ What does this mean? In R, whenever you want to use a package that is not part o
 babynames
 ```
 
-To load the {babynames} package, you would run the command `library(babynames)`. After you load a package, R will be able to find its contents _until you close R_. The next time you open R, you will need to reload the package if you wish to use it again.
+To load the {babynames} package, you would run the command `library("babynames")`. After you load a package, R will be able to find its contents _until you close R_. The next time you open R, you will need to reload the package if you wish to use it again.
 
 This might sound like an inconvenience, but choosing which packages to load keeps your R experience simple and orderly.
 
@@ -67,14 +67,14 @@ In the chunk below, load {babynames} (the package) and then open the help page f
 ## {{< fa circle-check >}}&ensp;Solution
 
 ```r
-library(babynames)
+library("babynames")
 ?babynames
 ```
 
 :::
 
 ```{r bnames, include=FALSE}
-library(babynames)
+library("babynames")
 ```
 
 ### The data

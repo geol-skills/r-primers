@@ -35,7 +35,7 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
+library("tidyverse")
 
 source(here::here("R", "helpers.R"))
 ```
@@ -43,7 +43,7 @@ source(here::here("R", "helpers.R"))
 ```{webr}
 #| label: setup
 #| include: false
-library(babynames)
+library("babynames")
 ```
 
 ### What is a tibble? {.no-hide}
@@ -74,8 +74,8 @@ To see what I mean, use `library()` to load the tibble package in the chunk belo
 ## {{< fa circle-check >}}&ensp;Solution
 
 ```r
-library(tibble)
-library(babynames)
+library("tibble")
+library("babynames")
 babynames
 ```
 

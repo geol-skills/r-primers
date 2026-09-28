@@ -36,8 +36,8 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
-library(babynames)
+library("tidyverse")
+library("babynames")
 
 tops <- babynames::babynames |> 
   group_by(name, sex) |> 

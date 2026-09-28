@@ -36,8 +36,8 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
-library(ggrepel)
+library("tidyverse")
+library("ggrepel")
 set.seed(1234)
 
 source(here::here("R", "helpers.R"))

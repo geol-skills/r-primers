@@ -25,9 +25,9 @@ options(
   width = 300
 )
 
-library(tidyverse)
-library(palmerpenguins)
-library(checkdown)
+library("tidyverse")
+library("palmerpenguins")
+library("checkdown")
 
 source(here::here("R", "helpers.R"))
 ```

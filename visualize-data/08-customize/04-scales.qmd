@@ -35,7 +35,7 @@ knitr::opts_chunk$set(
   out.width = "70%"
 )
 
-library(tidyverse)
+library("tidyverse")
 
 p1 <- ggplot(data = diamonds, mapping = aes(x = carat, y = price)) +
   geom_smooth(mapping = aes(color = cut), se = FALSE) + 
