@@ -106,3 +106,13 @@ thead th {
 #nextTopicButton.disabled {
   display: none;
 }
+
+// The two tutorials students must complete before Week 1 stay bold in the
+// sidebar, whichever page is open.
+// Quarto rewrites these hrefs at runtime, dropping "index.html".
+.sidebar-link[href$="02-programming-basics/"] .menu-text,
+.sidebar-link[href$="02-programming-basics/index.html"] .menu-text,
+.sidebar-link[href$="03-working-with-data/"] .menu-text,
+.sidebar-link[href$="03-working-with-data/index.html"] .menu-text {
+  font-weight: bold;
+}
