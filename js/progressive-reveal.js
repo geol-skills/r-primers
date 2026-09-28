@@ -15,10 +15,19 @@ function revealSection(sectionIndex) {
 var continueButton = document.getElementById('continueButton');
 var nextTopicButton = document.getElementById('nextTopicButton');
 
-// Disable continue button if there are no sections
-if (sections.length === 0) {
-    continueButton.disabled = true;
+// Swap Continue for Next topic once every section is showing.
+// Next topic starts hidden (see custom.scss: #nextTopicButton.disabled).
+function finishPage() {
+  if (nextTopicButton) {
     nextTopicButton.classList.remove('disabled');
+    continueButton.style.display = 'none';
+  } else {
+    continueButton.disabled = true;
+  }
+}
+
+if (sections.length === 0) {
+    finishPage();
 // Otherwise progressively reveal sections
 } else {
     continueButton.addEventListener('click', function () {
@@ -33,16 +42,18 @@ if (sections.length === 0) {
         }
 
         if (currentSection >= sections.length - 1) {
-            continueButton.disabled = true;
-            nextTopicButton.classList.remove('disabled');
+            finishPage();
         }
     });
 }
 
 // On page load, reveal up to the current section
 window.onload = function () {
-  for (var i = 0; i <= currentSection; i++) {
+  for (var i = 0; i <= currentSection && i < sections.length; i++) {
     revealSection(i);
+  }
+  if (sections.length > 0 && currentSection >= sections.length - 1) {
+    finishPage();
   }
 };
 
