@@ -1,5 +1,5 @@
 ---
-title: "Line plots (optional)"
+title: "Line plots"
 format:
   html: 
     toc: false

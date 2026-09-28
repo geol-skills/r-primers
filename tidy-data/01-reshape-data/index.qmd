@@ -1,5 +1,5 @@
 ---
-title: "Reshape data (optional)"
+title: "Reshape data"
 format:
   html: 
     toc: false

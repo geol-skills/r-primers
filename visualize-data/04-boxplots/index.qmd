@@ -1,5 +1,5 @@
 ---
-title: "Boxplots and counts (optional)"
+title: "Boxplots and counts"
 format:
   html: 
     toc: false

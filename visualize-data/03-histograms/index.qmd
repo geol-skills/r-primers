@@ -1,5 +1,5 @@
 ---
-title: "Histograms (optional)"
+title: "Histograms"
 format:
   html: 
     toc: false

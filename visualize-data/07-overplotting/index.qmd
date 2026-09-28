@@ -1,5 +1,5 @@
 ---
-title: "Overplotting and big data (optional)"
+title: "Overplotting and big data"
 format:
   html: 
     toc: false

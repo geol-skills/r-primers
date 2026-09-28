@@ -1,5 +1,5 @@
 ---
-title: "Exploratory data analysis (optional)"
+title: "Exploratory data analysis"
 format:
   html: 
     toc: false

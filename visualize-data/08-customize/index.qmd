@@ -1,5 +1,5 @@
 ---
-title: "Customize your plots (optional)"
+title: "Customize your plots"
 format:
   html: 
     toc: false

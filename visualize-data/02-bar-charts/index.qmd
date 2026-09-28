@@ -1,5 +1,5 @@
 ---
-title: "Bar charts (optional)"
+title: "Bar charts"
 format:
   html: 
     toc: false

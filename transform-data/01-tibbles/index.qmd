@@ -1,5 +1,5 @@
 ---
-title: "Working with tibbles (optional)"
+title: "Working with tibbles"
 format:
   html: 
     toc: false

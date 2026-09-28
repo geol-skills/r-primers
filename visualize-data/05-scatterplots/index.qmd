@@ -1,5 +1,5 @@
 ---
-title: "Scatterplots (optional)"
+title: "Scatterplots"
 format:
   html: 
     toc: false
