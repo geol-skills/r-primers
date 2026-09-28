@@ -1,5 +1,5 @@
 ---
-title: "Packages"
+title: "Packages (optional)"
 format:
   live-html: 
     theme: 
@@ -13,8 +13,8 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
-          <script src="/js/bootstrapify.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
 
 engine: knitr
 
@@ -32,15 +32,20 @@ library(checkdown)
 source(here::here("R", "helpers.R"))
 ```
 
+{{< include ../../_optional.qmd >}}
+
 ### Packages {.no-hide}
 
-Watch [this video](https://vimeo.com/220490447):
+R comes with many functions built in; together these are called "base R". **Packages** add more. From Week 2 we use two of them, {ggplot2} and {dplyr}.
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490447" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
-```
+Using a package takes two steps, which match Python's `pip install` and `import`:
+
+1. **Install** it, once per computer: `install.packages("ggplot2")`.
+2. **Load** it, once per R session: `library(ggplot2)`.
+
+If you call a function from a package you have not loaded, R stops with an error like `could not find function "ggplot"`. The same error appears if you mistype a function's name, so check both.
+
+On this site, and on the course's exercise pages, R runs in your browser and the packages each page needs are installed for you. On your own computer, you install them yourself.
 
 ### A common error
 
@@ -134,5 +139,5 @@ Congratulations. You now have a formal sense for how the basics of R work. Altho
 ```{r}
 #| echo: false
 #| results: asis
-create_buttons(NULL)
+create_buttons("../03-working-with-data/index.html")
 ```

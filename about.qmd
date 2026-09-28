@@ -106,6 +106,17 @@ One great feature of {learnr} is its [progressive reveal](https://rstudio.github
 
 {learnr} also supports [interactive questions](https://rstudio.github.io/learnr/articles/questions.html), or inline quiz questions. To simulate this, I use [{checkdown}](https://agricolamz.github.io/checkdown/). It's not as great as {learnr}, but again, it gets the job done.^[I also played with [{webexercises}](https://psyteachr.github.io/webexercises/articles/webexercises.html), which is a little more polished, but doesn't let you give feedback messages for in/correct answers. I'm tempted to fork {checkdown} or submit a bunch of PRs to make it nicer. Someday.]
 
+## Changes in this fork
+
+This fork, maintained for the [Research Skills for Geoscientists](https://geol-skills.github.io/) course at Durham University, changes Andrew Heiss's version as follows:
+
+- The original videos were hosted on Vimeo and are no longer available. Each one has been replaced with a written explanation, which is also more accessible. In *Programming basics*, each explanation ends with a short interactive exercise.
+- A new tutorial, *Working with data*, teaches the base R skills that the course's Week 1 exercises assume: `read.csv()`, inspecting data frames, `$`, summary statistics, `plot()`, `hist()` and writing functions. It uses monthly weather data from Durham University Observatory (Met Office, © Crown copyright, [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)).
+- Tutorials that students don't need before Week 1 are marked as optional.
+- Script paths are relative, so the site can be served from a subdirectory.
+
+These changes are also licensed under CC BY-SA 4.0.
+
 ## Legal stuff
 
 The original primers were developed by the RStudio/Posit Education Team and made [open source on GitHub](https://github.com/rstudio-education/primers). Following the original license, these tutorials are licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).

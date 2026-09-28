@@ -1,13 +1,13 @@
 ---
-title: "Data visualization basics"
+title: "Data visualization basics (optional)"
 format:
   html: 
     toc: false
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
-          <script src="/js/bootstrapify.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
 ---
 
 ```{r include=FALSE}
@@ -28,6 +28,8 @@ Visualization is one of the most important tools for data science.
 It is also a great way to start learning R; when you visualize data, you get an immediate payoff that will keep you motivated as you learn. After all, learning a new language can be hard!
 
 This tutorial will teach you how to visualize data with R's most popular visualization package, `ggplot2`.
+
+{{< include ../../_optional.qmd >}}
 
 ### 
 

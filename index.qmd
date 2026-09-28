@@ -1,14 +1,25 @@
 ---
-title: "R Primers"
+title: "R Primers for Geoscientists"
 toc: false
 ---
 
-A version of the old RStudio/Posit Primers, now with Quarto and webR.
+Interactive tutorials that teach the basics of R. The code runs in your browser, so there is nothing to install.
+
+## Before Week 1
+
+Work through these two tutorials, in order. Together they take two to three hours.
+
+1. [**Programming basics**](basics/02-programming-basics/index.qmd): functions, arguments, objects, vectors and types. The last two parts, on lists and packages, are optional.
+2. [**Working with data**](basics/03-working-with-data/index.qmd): loading a CSV file, inspecting it, summarising and plotting it, and writing your own functions.
+
+Everything else on this site is **optional**. It covers {ggplot2} and {dplyr}, which the course teaches from Week 2, so it's useful for a head start or a refresher.
+
+These tutorials support the [Research Skills for Geoscientists](https://geol-skills.github.io/) course at Durham University. See the course's [preparation guide](https://geol-skills.github.io/materials/preparation.html) for the rest of what to do before term starts.
 
 ## License {.appendix}
 
-The original primers were developed by the RStudio/Posit Education Team and made [open source on GitHub](https://github.com/rstudio-education/primers). Following the original license, these tutorials are licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0).
+This site is a fork of Andrew Heiss's [webR version of the Primers](https://github.com/andrewheiss/r-primers), which is itself based on the RStudio/Posit Primers developed by the RStudio/Posit Education Team and made [open source on GitHub](https://github.com/rstudio-education/primers). Following the original license, these tutorials are licensed under the Creative Commons Attribution-ShareAlike 4.0 License (CC BY-SA 4.0). See the [About](about.qmd#changes-in-this-fork) page for what this fork changes.
 
 The primers are derived from the book [*R for Data Science*](https://r4ds.had.co.nz/) from O'Reilly Media, Inc. Copyright © 2017 Garrett Grolemund, Hadley Wickham. Used with permission.
 
-[See here for the full license.](https://github.com/andrewheiss/r-primers/blob/main/LICENSE.md)
+[See here for the full license.](https://github.com/geol-skills/r-primers/blob/main/LICENSE.md)

@@ -13,7 +13,7 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
 
 engine: knitr
 ---
@@ -26,12 +26,26 @@ source(here::here("R", "helpers.R"))
 
 ### Objects {.no-hide}
 
-Watch [this video](https://vimeo.com/220493412):
+To keep a result for later, save it as an **object** with the assignment arrow `<-`:
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220493412" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+```r
+x <- sqrt(16)
+x
+x * 2
+```
+
+Read `<-` as "gets": `x` gets the value of `sqrt(16)`. It does the job that `=` does in Python. R also accepts `=`, but `<-` is the convention, and it is what this course uses.
+
+Assigning an object prints nothing. To see what an object holds, type its name. Two things to watch:
+
+- Names are case-sensitive, so `x` and `X` are different objects.
+- Assigning to a name that already exists replaces the old value without warning.
+
+Run the chunk below, then add a line that stores `x * 2` in a new object called `y`.
+
+```{webr}
+x <- sqrt(16)
+x
 ```
 
 ### Object names

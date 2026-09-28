@@ -13,7 +13,7 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
 
 engine: knitr
 ---
@@ -26,12 +26,28 @@ source(here::here("R", "helpers.R"))
 
 ### Vectors {.no-hide}
 
-Watch [this video](https://vimeo.com/220490316):
+A **vector** is R's basic container: an ordered sequence of values that all have the same type. Make one with `c()`, which stands for "combine":
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490316" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+```r
+temps <- c(3.2, 3.8, 5.9, 8.1, 11.2)
+```
+
+Vectors behave like NumPy arrays. Arithmetic works element by element, so `temps + 273.15` converts every value to kelvin, and functions such as `mean(temps)` summarise the whole vector.
+
+Square brackets extract elements, and **R counts from 1, not 0**:
+
+- `temps[1]` is the first value, `3.2`.
+- `temps[2:3]` is the second and third values.
+- `temps[-1]` is everything *except* the first value. In Python, `-1` would mean the last element; in R, a negative index drops that element.
+
+A single number is just a vector of length one. That is why R prints `[1]` in front of its results.
+
+Run the chunk below. Then change it to print the last two temperatures.
+
+```{webr}
+temps <- c(3.2, 3.8, 5.9, 8.1, 11.2)
+temps + 273.15
+temps[1]
 ```
 
 ### Create a vector

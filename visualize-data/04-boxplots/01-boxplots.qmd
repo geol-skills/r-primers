@@ -13,8 +13,8 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
-          <script src="/js/bootstrapify.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
 
 engine: knitr
 
@@ -43,13 +43,14 @@ source(here::here("R", "helpers.R"))
 
 ### Introduction {.no-hide}
 
-Watch [this video](https://vimeo.com/222358034):
+A boxplot summarises a distribution in five numbers:
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/222358034" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
-```
+- The line in the middle of the box is the **median**: half the observations lie on each side of it.
+- The box runs from the first to the third **quartile**, so it holds the middle half of the data. Its length is the interquartile range (IQR).
+- The **whiskers** extend to the most extreme observations that lie within 1.5 × IQR of the box.
+- Any observations beyond the whiskers are drawn as individual points, which are candidate **outliers**.
+
+A boxplot loses detail (it cannot show two peaks, for instance), but because it is compact, it is ideal for comparing a variable across groups side by side.
 
 ### Exercise 1 - Boxplots
 

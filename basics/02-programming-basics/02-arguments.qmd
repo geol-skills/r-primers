@@ -13,8 +13,8 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
-          <script src="/js/bootstrapify.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
 
 engine: knitr
 ---
@@ -30,12 +30,23 @@ source(here::here("R", "helpers.R"))
 
 ### Arguments {.no-hide}
 
-Watch [this video](https://vimeo.com/220490157):
+The inputs to a function are called **arguments**. Every argument has a name, and you can supply it by name or by position:
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490157" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+```r
+round(3.14159, digits = 2)
+round(3.14159, 2)        # the same: matched by position
+```
+
+R matches named arguments by name, so they can go in any order. It matches unnamed arguments in the order the function defines them. A good habit is to leave the first argument (usually the data) unnamed and name the rest.
+
+Many arguments have a **default value**, which R uses when you don't supply one. `round()`'s `digits` defaults to `0`, which is why `round(3.14159)` returns `3`. An argument with no default is required: leave it out and R stops with an error.
+
+`args()` lists a function's arguments with their defaults. This is the same idea as Python's keyword arguments, as in `def round(x, digits=0)`.
+
+Change the chunk below so that it returns `3.142`.
+
+```{webr}
+round(3.14159)
 ```
 
 ### `args()`
