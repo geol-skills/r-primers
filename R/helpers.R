@@ -2,7 +2,7 @@ create_buttons <- function(next_topic = "#") {
   if (is.null(next_topic)) {
     next_button <- ""
   } else {
-    next_button <- glue::glue('<a id="nextTopicButton" class="btn btn-danger" href="{next_topic}" role="button">Next topic</a>')
+    next_button <- glue::glue('<a id="nextTopicButton" class="btn btn-danger disabled" href="{next_topic}" role="button">Next topic</a>')
   }
   button_section <- glue::glue('
 <section id="buttons">
