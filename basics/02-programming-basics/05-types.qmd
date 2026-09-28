@@ -13,8 +13,8 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
-          <script src="/js/bootstrapify.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
 
 engine: knitr
 ---
@@ -30,12 +30,28 @@ source(here::here("R", "helpers.R"))
 
 ### Types {.no-hide}
 
-Watch [this video](https://vimeo.com/220490241):
+Every vector has a **type**. R has six basic ("atomic") types, and you will use four of them regularly:
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490241" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+| Type | Examples | Notes |
+|------|----------|-------|
+| double | `3.2`, `-1`, `1e6` | R's usual type for numbers ("numeric") |
+| integer | `5L`, `1:10` | the `L` marks an integer |
+| character | `"Durham"`, `"1"` | text, always in quotes |
+| logical | `TRUE`, `FALSE` | all capitals (Python writes `True`) |
+
+The other two, complex and raw, you are unlikely to need.
+
+`typeof()` tells you the type of a vector. Because a vector holds one type only, combining different types makes R *coerce* everything to the most flexible type: `c(1, "a", TRUE)` becomes a character vector. This causes a familiar surprise with real data, where one stray bit of text in a column of numbers makes R read the whole column as character.
+
+Missing values are written `NA`, whatever the type.
+
+Run the chunk below and predict each answer before you look.
+
+```{webr}
+typeof(3.2)
+typeof(5L)
+typeof("3.2")
+typeof(c(1, "a", TRUE))
 ```
 
 ### Atomic types

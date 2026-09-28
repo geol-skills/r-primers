@@ -13,7 +13,7 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
 
 engine: knitr
 ---
@@ -26,12 +26,25 @@ source(here::here("R", "helpers.R"))
 
 ### Functions {.no-hide}
 
-Watch [this video](https://vimeo.com/220490105):
+Almost everything you do in R happens by calling a **function**. A function takes some input, does something with it, and returns a result. You call a function by typing its name, followed by parentheses that hold the input:
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490105" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+```r
+sqrt(16)
+round(3.14159)
+```
+
+If you have used Python, this will look familiar: `np.sqrt(16)` becomes `sqrt(16)`. Everyday maths and statistics functions are built into R, so there is nothing to import first.
+
+Three things are worth knowing from the start:
+
+- Typing a function's name *without* parentheses shows you the code the function runs, rather than running it.
+- `?name` opens the function's help page.
+- R ignores anything after a `#` on a line, so you can use `#` to write comments.
+
+Run the chunk below, then change it to round `pi` (which is built into R).
+
+```{webr}
+round(3.14159)
 ```
 
 ### Run a function

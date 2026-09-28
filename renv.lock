@@ -937,6 +937,17 @@
       ],
       "Hash": "8b3b213aa0c54a0dec254288ccb545d1"
     },
+    "maps": {
+      "Package": "maps",
+      "Version": "3.4.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "graphics",
+        "utils"
+      ]
+    },
     "markdown": {
       "Package": "markdown",
       "Version": "2.0",

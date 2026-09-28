@@ -1,0 +1,38 @@
+---
+title: "Working with data"
+format:
+  html:
+    toc: false
+    section-divs: true
+    include-after-body:
+      - text: |
+          <script src="../../js/progressive-reveal.js"></script>
+---
+
+```{r include=FALSE}
+source(here::here("R", "helpers.R"))
+```
+
+### Real data, base R {.no-hide}
+
+The programming basics tutorial showed you how R works. This tutorial puts that to use on a real dataset: monthly weather records from Durham University Observatory, which the Met Office publishes. You'll learn to:
+
+* **load** a CSV file into a data frame
+* **inspect** a data frame, and pull out a column with `$`
+* **summarise** a column with `mean()`, `sd()` and `summary()`
+* **plot** data with `plot()` and `hist()`
+* **write** your own function
+
+These are the skills the Week 1 exercises assume. Everything here uses base R: no packages needed.
+
+::: {.callout-note appearance="simple"}
+The data are from the Met Office's [historic station data for Durham](https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/durhamdata.txt), © Crown copyright, reused under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). See [`data/README.md`](https://github.com/geol-skills/r-primers/blob/main/data/README.md) for how they were prepared.
+:::
+
+##
+
+```{r}
+#| echo: false
+#| results: asis
+create_buttons("01-data-frames.html")
+```

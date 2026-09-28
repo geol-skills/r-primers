@@ -1,13 +1,15 @@
 ---
-title: "Line plots"
+title: "Line plots (optional)"
 format:
   html: 
     toc: false
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
 ---
+
+{{< include ../../_optional.qmd >}}
 
 ```{r include=FALSE}
 knitr::opts_chunk$set(

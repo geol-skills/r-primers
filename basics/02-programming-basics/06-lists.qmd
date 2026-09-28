@@ -1,5 +1,5 @@
 ---
-title: "Lists"
+title: "Lists (optional)"
 format:
   live-html: 
     theme: 
@@ -13,8 +13,8 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
-          <script src="/js/bootstrapify.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
 
 engine: knitr
 ---
@@ -28,14 +28,28 @@ library(checkdown)
 source(here::here("R", "helpers.R"))
 ```
 
+{{< include ../../_optional.qmd >}}
+
 ### Lists {.no-hide}
 
-Watch [this video](https://vimeo.com/220490360):
+A **list** is like a vector, but its elements can be anything: a number, some text, a whole vector, even another list. Make one with `list()`, usually naming the elements:
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/220490360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
+```r
+site <- list(name = "Durham", elevation_m = 102, temps = c(3.2, 3.8, 5.9))
+```
+
+Take an element out by name with `$` (as in `site$name`) or with double brackets (as in `site[["temps"]]`). Single brackets, as in `site["temps"]`, return a smaller *list* rather than the element itself.
+
+If you have used Python, a named list is close to a `dict`.
+
+Lists matter because a data frame is a list of equal-length vectors, one per column. That is why `df$column` works.
+
+Run the chunk below, then extract the mean of `site$temps`.
+
+```{webr}
+site <- list(name = "Durham", elevation_m = 102, temps = c(3.2, 3.8, 5.9))
+site$name
+site[["temps"]]
 ```
 
 ### Lists vs. vectors

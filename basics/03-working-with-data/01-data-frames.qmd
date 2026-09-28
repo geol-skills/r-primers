@@ -1,0 +1,211 @@
+---
+title: "Data frames"
+format:
+  live-html:
+    theme:
+      - zephyr
+      - ../../html/custom.scss
+    knitr:
+      opts_chunk:
+        dev: "ragg_png"
+        dpi: 300
+    toc: false
+    section-divs: true
+    include-after-body:
+      - text: |
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
+
+resources:
+  - ../../data/durham_weather.csv
+
+engine: knitr
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(checkdown)
+source(here::here("R", "helpers.R"))
+```
+
+### Data frames {.no-hide}
+
+Most data you will work with comes as a table: one row per observation, one column per variable. In R, a table is a **data frame**. It works much like a pandas `DataFrame` in Python: under the hood, it is a list of vectors of equal length, one vector per column.
+
+The usual way to get a table into R is from a CSV file, with `read.csv()`:
+
+```r
+weather <- read.csv("data/durham_weather.csv")
+```
+
+`read.csv()` reads the file and returns a data frame. Nothing prints, because the result is saved as the object `weather`. The path is relative to R's working directory; on this site, the file has already been placed in a `data` folder for you.
+
+The chunk below runs this line for you each time you open the page, so that the later exercises work even if you skip ahead.
+
+```{webr}
+#| autorun: true
+weather <- read.csv("data/durham_weather.csv")
+```
+
+### Load the data
+
+Use `read.csv()` to load `data/durham_weather.csv` into an object called `weather`. Then type `weather` on a new line to print it.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+weather <- read.csv("data/durham_weather.csv")
+weather
+```
+
+:::
+
+###
+
+That's a lot of output! The data frame has one row for each month from January 1900 to December 2025. Printing the whole of a big table is rarely useful; the next few functions give you a quicker look.
+
+### `head()`
+
+`head()` shows the first six rows of a data frame, and `tail()` the last six. Look at the first rows of `weather`.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+head(weather)
+```
+
+:::
+
+###
+
+The columns are:
+
+| Column | Meaning |
+|--------|---------|
+| `year`, `month` | when the record was made |
+| `tmax_c` | mean daily maximum temperature that month (°C) |
+| `tmin_c` | mean daily minimum temperature that month (°C) |
+| `frost_days` | number of days with an air frost |
+| `rain_mm` | total rainfall that month (mm) |
+
+### Size and names
+
+`nrow()` counts the rows of a data frame, `ncol()` counts its columns, and `names()` lists the column names. Use them to find out how many months `weather` covers and what its columns are called.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+nrow(weather)
+ncol(weather)
+names(weather)
+```
+
+:::
+
+### `str()`
+
+`str()` (short for "structure") gives a compact summary: the size of the data frame, then one line per column with its type and first few values. Run it on `weather`.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+str(weather)
+```
+
+:::
+
+###
+
+`int` means integer and `num` means a double: see the [types](../02-programming-basics/05-types.qmd) tutorial. `str()` is the quickest way to check that R read each column as the type you expected. A column of numbers that shows up as `chr` (character) usually means there is some text hiding in it.
+
+### Pick out a column with `$`
+
+`$` extracts one column from a data frame as a vector, just as it extracts an element from a named list:
+
+```r
+weather$rain_mm
+```
+
+Extract the `tmax_c` column. Then use square brackets to show only its first 12 values: the monthly temperatures for 1900.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+weather$tmax_c
+weather$tmax_c[1:12]
+```
+
+:::
+
+### Quick check
+
+::: {.callout-note appearance="simple" icon=false .question}
+
+**How many rows does `weather` have?**
+
+```{r echo=FALSE}
+check_question(
+  answer = "1512",
+  options = c("126", "1512", "6"),
+  type = "radio",
+  button_label = "Submit answer",
+  q_id = 1,
+  right = "Correct! 126 years × 12 months = 1512 rows. There are 6 columns.",
+  wrong = "Not quite. Use nrow(weather)."
+)
+```
+:::
+
+##
+
+```{r}
+#| echo: false
+#| results: asis
+create_buttons("02-summaries.html")
+```

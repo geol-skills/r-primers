@@ -1,0 +1,4 @@
+::: {.callout-note appearance="simple"}
+**Optional.** You don't need this before Week 1. Come back to it for a head start on later weeks, or as a refresher.
+:::
+

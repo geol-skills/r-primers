@@ -13,8 +13,8 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
-          <script src="/js/bootstrapify.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
 
 engine: knitr
 
@@ -135,19 +135,13 @@ check_question(
 ::: {.callout-tip}
 ## Older names
 
-This video uses older function names:
+Code you find online may use the older names:
 
 - Old `gather()` is now `pivot_longer()`
 - Old `spread()` is now `pivot_wider()`
 :::
 
-Watch [this video](https://vimeo.com/229581273):
-
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/229581273" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
-```
+In `pollution`, the `size` column holds two variable names, `large` and `small`, and `amount` holds their values. To tidy the data, turn each value of `size` into its own column and fill those columns from `amount`. The result has fewer rows and more columns than the original. This is called pivoting the data **wider**, the reverse of pivoting longer.
 
 ### `pivot_wider()`
 

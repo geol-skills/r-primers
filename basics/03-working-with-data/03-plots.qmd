@@ -1,0 +1,172 @@
+---
+title: "Plots"
+format:
+  live-html:
+    theme:
+      - zephyr
+      - ../../html/custom.scss
+    knitr:
+      opts_chunk:
+        dev: "ragg_png"
+        dpi: 300
+    toc: false
+    section-divs: true
+    include-after-body:
+      - text: |
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
+
+resources:
+  - ../../data/durham_weather.csv
+
+engine: knitr
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(checkdown)
+source(here::here("R", "helpers.R"))
+```
+
+### Base R plots {.no-hide}
+
+Base R can draw quick plots with no packages at all. They are the fastest way to look at your data. (From Week 2 you'll use {ggplot2} for figures you want to show other people.)
+
+| R | Python (Matplotlib) | Draws |
+|---|---------------------|-------|
+| `plot(x, y)` | `plt.scatter(x, y)` | a scatter plot of `y` against `x` |
+| `plot(x, y, type = "l")` | `plt.plot(x, y)` | a line |
+| `hist(x)` | `plt.hist(x)` | a histogram |
+
+Arguments set the labels: `xlab` and `ylab` label the axes and `main` sets the title.
+
+The chunk below loads the data each time you open this page.
+
+```{webr}
+#| autorun: true
+weather <- read.csv("data/durham_weather.csv")
+```
+
+### A scatter plot
+
+Plot `tmax_c` (on the *y* axis) against `tmin_c` (on the *x* axis). What relationship do you expect?
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+plot(weather$tmin_c, weather$tmax_c)
+```
+
+:::
+
+### Labels
+
+Default axis labels such as `weather$tmin_c` are hard to read. Redraw the plot with proper labels, including units, by adding `xlab` and `ylab` arguments. Add a title with `main`.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+plot(weather$tmin_c, weather$tmax_c)
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+plot(weather$tmin_c, weather$tmax_c,
+     xlab = "Minimum temperature (°C)",
+     ylab = "Maximum temperature (°C)",
+     main = "Durham, monthly means, 1900–2025")
+```
+
+:::
+
+### A histogram
+
+`hist()` shows how the values of one variable are distributed. Draw a histogram of monthly rainfall, with a proper axis label.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+hist(weather$rain_mm, xlab = "Monthly rainfall (mm)")
+```
+
+:::
+
+### Bins
+
+`hist()` chooses the number of bins for you, but the choice changes what you see. The `breaks` argument suggests a different number. Redraw the histogram with `breaks = 5`, then with `breaks = 50`. Which gives the most honest picture?
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+hist(weather$rain_mm, xlab = "Monthly rainfall (mm)")
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+hist(weather$rain_mm, breaks = 5, xlab = "Monthly rainfall (mm)")
+hist(weather$rain_mm, breaks = 50, xlab = "Monthly rainfall (mm)")
+```
+
+:::
+
+###
+
+Too few bins hide the shape of the distribution; too many turn noise into spikes. There is no single right answer, which is why it is worth trying a few.
+
+### Extension: a warming trend?
+
+*Optional.* Plot `tmax_c` for July only against `year`, using the square-bracket trick from the [summary statistics](02-summaries.qmd) tutorial. Add `type = "l"` to join the points into a line. What do you notice?
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+july <- weather$month == 7
+plot(weather$year[july], weather$tmax_c[july], type = "l",
+     xlab = "Year", ylab = "July maximum temperature (°C)")
+```
+
+:::
+
+##
+
+```{r}
+#| echo: false
+#| results: asis
+create_buttons("04-writing-functions.html")
+```

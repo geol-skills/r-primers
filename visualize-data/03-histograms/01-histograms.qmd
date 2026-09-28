@@ -13,8 +13,8 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
-          <script src="/js/bootstrapify.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
 
 engine: knitr
 
@@ -43,13 +43,12 @@ source(here::here("R", "helpers.R"))
 
 ### Introduction {.no-hide}
 
-Watch [this video](https://vimeo.com/221607341):
+A histogram shows the distribution of one continuous variable. It divides the $x$ axis into equal-width **bins** and draws a bar for each bin, as tall as the number of observations that fall into it.
 
-```{=html}
-<div class="ratio ratio-4x3">
-<iframe src="https://player.vimeo.com/video/221607341" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
-```
+Two things to keep in mind as you work through this section:
+
+- The shape you see depends on the bin width. Too wide, and detail is smoothed away; too narrow, and noise looks like structure. Always try a few widths.
+- Look for the centre, the spread, whether the distribution is symmetric or skewed, whether there is more than one peak, and whether any values sit far from the rest.
 
 ### How to make a histogram
 

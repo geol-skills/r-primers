@@ -13,8 +13,8 @@ format:
     section-divs: true
     include-after-body: 
       - text: |
-          <script src="/js/progressive-reveal.js"></script>
-          <script src="/js/bootstrapify.js"></script>
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
 
 engine: knitr
 
@@ -117,13 +117,13 @@ check_question(
 ::: {.callout-tip}
 ## Older names
 
-This video uses older function names:
+Code you find online may use the older names:
 
 - Old `gather()` is now `pivot_longer()`
 - Old `spread()` is now `pivot_wider()`
 :::
 
-Watch [this video](https://vimeo.com/229581247) (you'll need to click on the link; the video's privacy settings make it so it can't be embedded here)
+In `cases`, the years are stored as column names, not as values. To tidy the data, move those column names into a new `year` column and the counts into a new `n` column. The result has one row for every combination of country and year: it is longer and narrower than the original. This is called pivoting the data **longer**.
 
 ### `pivot_longer()`
 

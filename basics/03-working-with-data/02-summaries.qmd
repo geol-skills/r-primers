@@ -1,0 +1,197 @@
+---
+title: "Summary statistics"
+format:
+  live-html:
+    theme:
+      - zephyr
+      - ../../html/custom.scss
+    knitr:
+      opts_chunk:
+        dev: "ragg_png"
+        dpi: 300
+    toc: false
+    section-divs: true
+    include-after-body:
+      - text: |
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
+
+resources:
+  - ../../data/durham_weather.csv
+
+engine: knitr
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(checkdown)
+source(here::here("R", "helpers.R"))
+```
+
+### Summary statistics {.no-hide}
+
+Once you can pull a column out with `$`, summarising it takes one function call. These are the ones you will use most:
+
+| R | Python (NumPy) | Returns |
+|---|----------------|---------|
+| `mean(x)` | `np.mean(x)` | the mean |
+| `median(x)` | `np.median(x)` | the median |
+| `sd(x)` | `np.std(x, ddof=1)` | the sample standard deviation |
+| `min(x)`, `max(x)` | `np.min(x)`, `np.max(x)` | the smallest and largest values |
+| `summary(x)` | — | minimum, quartiles, median, mean and maximum in one go |
+
+Note that `sd()` uses the *sample* formula (dividing by *n* − 1), whereas NumPy's default divides by *n*.
+
+The chunk below loads the data each time you open this page.
+
+```{webr}
+#| autorun: true
+weather <- read.csv("data/durham_weather.csv")
+```
+
+### Mean and standard deviation
+
+Calculate the mean and standard deviation of `tmax_c`, the monthly maximum temperature.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+mean(weather$tmax_c)
+sd(weather$tmax_c)
+```
+
+:::
+
+###
+
+The mean is about 12.5 °C and the standard deviation about 5.1 °C. Is that a big spread? It mostly reflects the seasons: winter months are much colder than summer ones.
+
+### Extremes
+
+What were the lowest and highest monthly rainfall totals on record? Use `min()` and `max()`.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+min(weather$rain_mm)
+max(weather$rain_mm)
+```
+
+:::
+
+### `summary()`
+
+`summary()` gives the minimum, quartiles, median, mean and maximum all at once. Try it on `rain_mm`. Then try `summary(weather)`, which summarises every column.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+summary(weather$rain_mm)
+summary(weather)
+```
+
+:::
+
+### Picking out rows
+
+Often you want a summary of just some of the rows: July only, say. A comparison such as `weather$month == 7` returns a *logical* vector, `TRUE` where the month is July and `FALSE` elsewhere. Putting that vector inside square brackets keeps only the `TRUE` values:
+
+```r
+weather$tmax_c[weather$month == 7]
+```
+
+Calculate the mean July maximum temperature. Then do the same for January.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+mean(weather$tmax_c[weather$month == 7])
+mean(weather$tmax_c[weather$month == 1])
+```
+
+:::
+
+### Quick check
+
+::: {.callout-note appearance="simple" icon=false .question}
+
+**On average, how much warmer is a July afternoon in Durham than a January one?** (Round to the nearest degree.)
+
+```{r echo=FALSE}
+check_question(
+  answer = "About 14 °C",
+  options = c("About 5 °C", "About 14 °C", "About 20 °C"),
+  type = "radio",
+  button_label = "Submit answer",
+  q_id = 1,
+  right = "Correct! About 19.7 °C in July against 6.1 °C in January.",
+  wrong = "Not quite. Subtract the January mean of tmax_c from the July mean."
+)
+```
+:::
+
+### Missing values
+
+This dataset has no gaps, but real data often do. R marks a missing value as `NA`, and any calculation involving `NA` returns `NA`: `mean(c(1, 2, NA))` is `NA`. To skip missing values, add `na.rm = TRUE`: `mean(c(1, 2, NA), na.rm = TRUE)` is `1.5`. Try it.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+mean(c(1, 2, NA))
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+mean(c(1, 2, NA), na.rm = TRUE)
+```
+
+:::
+
+##
+
+```{r}
+#| echo: false
+#| results: asis
+create_buttons("03-plots.html")
+```

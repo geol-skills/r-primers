@@ -1,0 +1,160 @@
+---
+title: "Writing functions"
+format:
+  live-html:
+    theme:
+      - zephyr
+      - ../../html/custom.scss
+    knitr:
+      opts_chunk:
+        dev: "ragg_png"
+        dpi: 300
+    toc: false
+    section-divs: true
+    include-after-body:
+      - text: |
+          <script src="../../js/progressive-reveal.js"></script>
+          <script src="../../js/bootstrapify.js"></script>
+
+resources:
+  - ../../data/durham_weather.csv
+
+engine: knitr
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(checkdown)
+source(here::here("R", "helpers.R"))
+```
+
+### Writing functions {.no-hide}
+
+So far you have used functions that come with R. You can also write your own. A function bundles up some code, so you can reuse it without retyping it and give it a name that says what it does.
+
+```r
+celsius_to_kelvin <- function(temp) {
+  temp + 273.15
+}
+```
+
+Compare this with Python:
+
+```python
+def celsius_to_kelvin(temp):
+    return temp + 273.15
+```
+
+There are three differences:
+
+- In R, a function is an object like any other, so you create one with `function()` and save it with `<-`.
+- Curly braces `{ }`, not indentation, mark the body of the function. (Indent anyway: it makes code easier to read.)
+- R returns the value of the last line automatically, so you rarely need `return()`.
+
+The chunk below loads the weather data, which a later exercise uses.
+
+```{webr}
+#| autorun: true
+weather <- read.csv("data/durham_weather.csv")
+```
+
+### Write a function
+
+Write the `celsius_to_kelvin()` function above, then use it to convert 15 °C to kelvin.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+celsius_to_kelvin <- function(temp) {
+  temp + 273.15
+}
+celsius_to_kelvin(15)
+```
+
+:::
+
+###
+
+Because arithmetic in R works element by element, your function works on a whole vector too: `celsius_to_kelvin(c(0, 15, 100))` returns three values.
+
+### Your turn
+
+Write a function called `mm_to_inches()` that converts a length in millimetres to inches (there are 25.4 mm in an inch). Test it on 25.4, which should return 1.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+mm_to_inches <- function(mm) {
+  mm / 25.4
+}
+mm_to_inches(25.4)
+```
+
+:::
+
+### More than one argument
+
+A function can take several arguments, and any of them can have a default value. This function calculates the range of a vector: the difference between its largest and smallest values.
+
+```r
+value_range <- function(x, na.rm = FALSE) {
+  max(x, na.rm = na.rm) - min(x, na.rm = na.rm)
+}
+```
+
+Use `value_range()` to find the range of `tmax_c`.
+
+::: {.panel-tabset}
+## {{< fa code >}}&ensp;Interactive editor
+
+```{webr}
+value_range <- function(x, na.rm = FALSE) {
+  max(x, na.rm = na.rm) - min(x, na.rm = na.rm)
+}
+
+
+```
+
+## {{< fa circle-check >}}&ensp;Solution
+
+```r
+value_range <- function(x, na.rm = FALSE) {
+  max(x, na.rm = na.rm) - min(x, na.rm = na.rm)
+}
+value_range(weather$tmax_c)
+```
+
+:::
+
+### Ready for Week 1?
+
+You can now load a CSV file, inspect it, pull out columns, summarise them, plot them and write functions. That is everything the Week 1 exercises assume.
+
+Try the self-test at the end of the [preparation guide](https://geol-skills.github.io/materials/preparation.html#quick-self-test). If you can predict what each line does, you are ready.
+
+##
+
+```{r}
+#| echo: false
+#| results: asis
+create_buttons(NULL)
+```
